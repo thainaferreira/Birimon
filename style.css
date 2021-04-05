@@ -1,21 +1,27 @@
 /*RESET*/
-html, body, main, div, section{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html,
+body,
+main,
+div,
+section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /*RESET*/
 
 /* PLAYER STYLE'S */
-.player_red, .player_black{
-    height: 50px;
-    width: 50px;
+.player_red,
+.player_black {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
-.player_red{
-    background-color: red;
+.player_red {
+  background-color: red;
 }
-.player_black{
-    background-color: black;
+.player_black {
+  background-color: black;
 }
 /* PLAYER STYLE'S */
 
@@ -32,6 +38,9 @@ html, body, main, div, section{
   height: 300px;
   width: 50px;
   background-color: bisque;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 /* SECTION STYLE */
