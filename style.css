@@ -1,5 +1,22 @@
-/* PLAYER STYLE'S */
+/*RESET*/
+html, body, main, div, section{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*RESET*/
 
+/* PLAYER STYLE'S */
+.player_red, .player_black{
+    height: 50px;
+    width: 50px;
+}
+.player_red{
+    background-color: red;
+}
+.player_black{
+    background-color: black;
+}
 /* PLAYER STYLE'S */
 
 /* TABLE STYLE */
