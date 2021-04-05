@@ -44,7 +44,7 @@ sections.forEach(elem => {
 
 
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
-const changeCurrentPlayer = (currentPlayer) {
+const changeCurrentPlayer = (currentPlayer) => {
     //mexer na global currentPlayer, player1 e player 2
 }
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
@@ -59,6 +59,11 @@ let array = [
 
 //CREATING FUNCTION TO VALIDATE THE NUMBERS OF CHILD'S IN THE SECTION
 const validadeQuantity = () => {
+    if (X.childElementCount === 6){
+        return false
+    } else {
+        return true
+    }
     //usar childElementCount
     //nao pode ser maior que 6
 }
