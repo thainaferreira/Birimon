@@ -30,11 +30,14 @@ const sections = document.querySelectorAll(".col");
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
   let currentCollum = evt.currentTarget;
-  currentCollum.appendChild(element);
-  //append child no evt.currentTarget
-  changeCurrentPlayer(currentPlayer);
-  //chamar função changeCurrentPlayer
-  storingCurrentColor(currentCollum);
+  
+  if (verifyLimit(currentCollum)){
+    currentCollum.appendChild(element);
+    //append child no evt.currentTarget
+    changeCurrentPlayer(currentPlayer);
+    //chamar função changeCurrentPlayer
+    storingCurrentColor(currentCollum);
+  }
 };
 
 sections.forEach((elem) => {
@@ -44,12 +47,13 @@ sections.forEach((elem) => {
 
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 const changeCurrentPlayer = (currentPlayer) => {
-  //mexer na global currentPlayer, player1 e player 2
-};
+    //mexer na global currentPlayer, player1 e player 2
+}
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 
 //CREATING FUNCTION TO STORE THE COLOR OF A DISK
 let array = [[], [], [], [], [], [], []];
+
 const storingCurrentColor = (currentSection) => {
     let positionCurrentElem = currentSection.childElementCount;
     let idCurrentSection = parseInt(currentSection.id);
@@ -59,11 +63,14 @@ const storingCurrentColor = (currentSection) => {
 //CREATING FUNCTION TO STORE THE COLOR OF A DISK
 
 //CREATING FUNCTION TO VALIDATE THE NUMBERS OF CHILD'S IN THE SECTION
-const validadeQuantity = () => {
-  //usar childElementCount
-  //nao pode ser maior que 6
-};
-
+const verifyLimit = (column) => {
+    let id = column.id
+    if (array[id].length === 6){
+        return false
+    }else{
+        return true
+    }
+}
 //CREATING FUNCTION TO VALIDATE THE NUMBERS OF CHILD'S IN THE SECTION
 
 //CREATING FUNCTION TO VALIDADE WINCONDITION
