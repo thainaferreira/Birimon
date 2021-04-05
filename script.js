@@ -16,7 +16,7 @@ const tab = document.getElementById("tab");
 const createTab = () => {
   for (let i = 0; i < 7; i++) {
     let newSection = document.createElement("section");
-    newSection.id = "section_" + i;
+    newSection.id = i;
     newSection.classList.add("col");
     tab.appendChild(newSection);
   }
@@ -29,11 +29,12 @@ const sections = document.querySelectorAll(".col");
 
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
-  let currentCollum = evt.target;
+  let currentCollum = evt.currentTarget;
   currentCollum.appendChild(element);
   //append child no evt.currentTarget
   changeCurrentPlayer(currentPlayer);
   //chamar função changeCurrentPlayer
+  storingCurrentColor(currentCollum);
 };
 
 sections.forEach((elem) => {
@@ -49,6 +50,12 @@ const changeCurrentPlayer = (currentPlayer) => {
 
 //CREATING FUNCTION TO STORE THE COLOR OF A DISK
 let array = [[], [], [], [], [], [], []];
+const storingCurrentColor = (currentSection) => {
+    let positionCurrentElem = currentSection.childElementCount;
+    let idCurrentSection = parseInt(currentSection.id);
+    //currentPlayer deve ser mudado depois dessa function :
+    array[idCurrentSection][positionCurrentElem - 1] = currentPlayer;
+}
 //CREATING FUNCTION TO STORE THE COLOR OF A DISK
 
 //CREATING FUNCTION TO VALIDATE THE NUMBERS OF CHILD'S IN THE SECTION
