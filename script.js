@@ -1,8 +1,9 @@
 //CREATING PLAYERS
-const PLAYER_RED = document.createElement("div");
-const PLAYER_BLACK = document.createElement("div");
-PLAYER_RED.classList.add("player_red");
-PLAYER_BLACK.classList.add("player_black");
+const createPlayers = (current) => {
+  const player = document.createElement("div");
+  PLAYER.classList.add(`${current}`);
+  return player;
+};
 
 //CREATING PLAYERS
 
