@@ -1,17 +1,20 @@
 /* PLAYER STYLE'S */
 
-
 /* PLAYER STYLE'S */
 
 /* TABLE STYLE */
-    
+#tab {
+  display: flex;
+  flex-direction: row;
+}
 /* TABLE STYLE */
 
 /* SECTION STYLE */
 
 .col {
-    /* altura fixo (altura div player * 6) */
-    /* largura fixa (largura div player) */
-}    
+  height: 300px;
+  width: 50px;
+  background-color: bisque;
+}
 
 /* SECTION STYLE */
