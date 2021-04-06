@@ -25,10 +25,11 @@ const sections = document.querySelectorAll(".col");
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
   let currentCollum = evt.currentTarget;
-  
+  let actualPosition;
+
   if (verifyLimit(currentCollum)){
     currentCollum.appendChild(element);
-    storingCurrentColor(currentCollum);
+    actualPosition = storingCurrentColor(currentCollum);
     changeCurrentPlayer(currentPlayer);
   }
 };
@@ -50,7 +51,10 @@ let array = [[], [], [], [], [], [], []];
 const storingCurrentColor = (currentSection) => {
   let positionCurrentElem = currentSection.childElementCount;
   let idCurrentSection = parseInt(currentSection.id);
+  let actualPosition = `${idCurrentSection} ${positionCurrentElem - 1}`;
   array[idCurrentSection][positionCurrentElem - 1] = currentPlayer;
+  
+  return actualPosition;
 }
 
 const verifyLimit = (column) => {
