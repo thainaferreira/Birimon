@@ -1,14 +1,14 @@
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
+const tab = document.getElementById("tab");
+let array = [[], [], [], [], [], [], []];
 
 const createPlayers = (current) => {
   const player = document.createElement("div");
   player.classList.add(`${current}`);
   return player;
 };
-
-const tab = document.getElementById("tab");
 
 const createTab = () => {
   for (let i = 0; i < 7; i++) {
@@ -25,11 +25,10 @@ const sections = document.querySelectorAll(".col");
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
   let currentCollum = evt.currentTarget;
-  let actualPosition;
 
   if (verifyLimit(currentCollum)) {
     currentCollum.appendChild(element);
-    actualPosition = storingCurrentColor(currentCollum);
+    storingCurrentColor(currentCollum);
     changeCurrentPlayer(currentPlayer);
   }
   horizontalCheck(array);
@@ -49,15 +48,10 @@ const changeCurrentPlayer = () => {
   }
 };
 
-let array = [[], [], [], [], [], [], []];
-
 const storingCurrentColor = (currentSection) => {
   let positionCurrentElem = currentSection.childElementCount;
   let idCurrentSection = parseInt(currentSection.id);
-  let actualPosition = `${idCurrentSection} ${positionCurrentElem - 1}`;
   array[idCurrentSection][positionCurrentElem - 1] = currentPlayer;
-
-  return actualPosition;
 };
 
 const verifyLimit = (column) => {
@@ -69,7 +63,6 @@ const verifyLimit = (column) => {
   }
 };
 
-//CREATING FUNCTION HORIZONTAL
 const horizontalCheck = (arr) => {
   for (let j = 0; j < arr.length - 3; j++) {
     let section = arr[j];
@@ -81,7 +74,7 @@ const horizontalCheck = (arr) => {
         disco === arr[j + 3][i] &&
         disco === "player_red"
       ) {
-        console.log("Red wins");
+        alert("Red wins");
       }
       if (
         disco === arr[j + 1][i] &&
@@ -89,14 +82,12 @@ const horizontalCheck = (arr) => {
         disco === arr[j + 3][i] &&
         disco === "player_black"
       ) {
-        console.log("Black wins");
+        alert("Black wins");
       }
     }
   }
 };
-//CREATING FUNCTION HORIZONTAL
 
-//CREATING FUNCTIONG VERTICAL
 const verticalCheck = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let section = arr[i];
@@ -121,9 +112,7 @@ const verticalCheck = (arr) => {
     }
   }
 };
-//CREATING FUNCTIONG VERTICAL
 
-//CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
 const diagonalCheck = (arr) => {
   //VALIDAÇÃO DIREITA ABAIXO
   for (let i = 0; i < arr.length - 3; i++) {
@@ -160,4 +149,3 @@ const diagonalCheck = (arr) => {
     }
   }
 };
-//CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
