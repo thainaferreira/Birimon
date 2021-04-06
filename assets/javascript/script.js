@@ -32,6 +32,7 @@ const sectionEvt = (evt) => {
     actualPosition = storingCurrentColor(currentCollum);
     changeCurrentPlayer(currentPlayer);
   }
+  horizontalCheck(array);
   verticalCheck(array);
   diagonalCheck(array);
 };
@@ -69,6 +70,20 @@ const verifyLimit = (column) => {
 };
 
 //CREATING FUNCTION HORIZONTAL
+const horizontalCheck = (arr) => {
+  for (let j = 0; j < arr.length - 3; j++){
+    let section = arr[j];
+    for (let i = 0; i < section.length; i++){
+      let disco = section[i];
+      if (disco === arr[j+1][i] && disco === arr[j+2][i] && disco === arr[j+3][i] && disco === "player_red"){
+        console.log("Red wins");
+      }
+      if (disco === arr[j+1][i] && disco === arr[j+2][i] && disco === arr[j+3][i] && disco === "player_black"){
+        console.log("Black wins");
+      }
+    }
+  }
+}
 //CREATING FUNCTION HORIZONTAL
 
 //CREATING FUNCTIONG VERTICAL
@@ -101,7 +116,7 @@ const verticalCheck = (arr) => {
 //CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
 const diagonalCheck = (arr) => {
   
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length - 3; i++) {
     let section = arr[i]
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
