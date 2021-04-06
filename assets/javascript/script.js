@@ -100,8 +100,8 @@ const verticalCheck = (arr) => {
 
 //CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
 const diagonalCheck = (arr) => {
-  
-  for (let i = 0; i < arr.length; i++) {
+  //VALIDAÇÃO DIREITA ABAIXO
+  for (let i = 0; i < arr.length - 3; i++) {
     let section = arr[i]
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
@@ -109,7 +109,26 @@ const diagonalCheck = (arr) => {
       if (disco != undefined) {
         if (disco === arr[i + 1][j + 1]) {
           if (disco === arr[i + 2][j + 2]){
-            console.log('BIRI BIRI')
+            if(disco === arr[i + 3][j + 3]){
+              alert(disco)
+            }
+          }
+        }
+      }
+    }
+  }
+  //VALIDAÇÃO ESQUERDA ABAIXO
+  for (let i = 3; i < arr.length; i++) {
+    let section = arr[i];
+    for(let j = 0; j < section.length; j++) {
+      let disco = section[j];
+
+      if(disco != undefined){
+        if(disco === arr[i - 1][j + 1]){
+          if(disco === arr[i - 2][j + 2]){
+            if(disco === arr[i - 3][j + 3]){
+              alert(disco)
+            }
           }
         }
       }
