@@ -46,13 +46,12 @@ sections.forEach((elem) => {
 //CREATING FUNCTION EVT PARA SECTION
 
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
-const changeCurrentPlayer = (currentPlayer) => {
+const changeCurrentPlayer = () => {
   if (currentPlayer === player1) {
-    currentPlayer = player2
+    currentPlayer = player2;
   } else {
-    currentPlayer = player1
+    currentPlayer = player1;
   }
-  return currentPlayer
 }
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 
