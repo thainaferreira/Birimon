@@ -16,6 +16,8 @@ section {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  position: relative;
+  animation: mymove 500ms ease-in-out;
 }
 .player_red {
   background-color: red;
@@ -44,3 +46,17 @@ section {
 }
 
 /* SECTION STYLE */
+@keyframes mymove {
+  0% {
+    top: -300px;
+  }
+  70% {
+    top: 0px;
+  }
+  90% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
+}
