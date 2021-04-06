@@ -44,9 +44,15 @@ sections.forEach(elem => {
 
 
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
-const changeCurrentPlayer = (currentPlayer) {
-    //mexer na global currentPlayer, player1 e player 2
+const changeCurrentPlayer = (currentPlayer) => {
+    if (currentPlayer === player1) {
+        currentPlayer = player2
+    } else {
+        currentPlayer = player1
+    }
+    return currentPlayer
 }
+console.log(changeCurrentPlayer())
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 
 
