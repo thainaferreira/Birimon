@@ -47,12 +47,12 @@ sections.forEach((elem) => {
 
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 const changeCurrentPlayer = (currentPlayer) => {
-    if (currentPlayer === player1){
-      currentPlayer = player2
-    } else {
-      currentPlayer = player1
-    }
-    return currentPlayer
+  if (currentPlayer === player1) {
+    currentPlayer = player2
+  } else {
+    currentPlayer = player1
+  }
+  return currentPlayer
 }
 //CREATING FUNCTION TO CHANGE CURRENT PLAYER
 
