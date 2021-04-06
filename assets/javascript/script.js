@@ -33,6 +33,7 @@ const sectionEvt = (evt) => {
     changeCurrentPlayer(currentPlayer);
   }
   verticalCheck(array);
+  diagonalCheck(array);
 };
 
 sections.forEach((elem) => {
@@ -98,4 +99,21 @@ const verticalCheck = (arr) => {
 //CREATING FUNCTIONG VERTICAL
 
 //CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
+const diagonalCheck = (arr) => {
+  
+  for (let i = 0; i < arr.length; i++) {
+    let section = arr[i]
+    for (let j = 0; j < section.length; j++) {
+      let disco = section[j];
+
+      if (disco != undefined) {
+        if (disco === arr[i + 1][j + 1]) {
+          if (disco === arr[i + 2][j + 2]){
+            console.log('BIRI BIRI')
+          }
+        }
+      }
+    }
+  }
+}
 //CREATING FUNCTION DIAGONAL(ASCENDENTE E DESCENDENTE)
