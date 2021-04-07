@@ -162,6 +162,10 @@ const winCondition = () => {
 
 const showTable = () => {
   createTab();
+  const sections = document.querySelectorAll(".col");
+  sections.forEach((elem) => {
+    elem.addEventListener("click", sectionEvt);
+  });
 };
 
 startButton.addEventListener("click", showTable);
