@@ -1,6 +1,8 @@
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
+let victory = [];
+console.log(victory);
 const tab = document.getElementById("tab");
 let array = [[], [], [], [], [], [], []];
 
@@ -34,6 +36,7 @@ const sectionEvt = (evt) => {
   horizontalCheck(array);
   verticalCheck(array);
   diagonalCheck(array);
+  winCondition();
 };
 
 sections.forEach((elem) => {
@@ -74,7 +77,7 @@ const horizontalCheck = (arr) => {
         disco === arr[j + 3][i] &&
         disco === "player_red"
       ) {
-        alert("Red wins");
+        victory.push(disco);
       }
       if (
         disco === arr[j + 1][i] &&
@@ -82,7 +85,7 @@ const horizontalCheck = (arr) => {
         disco === arr[j + 3][i] &&
         disco === "player_black"
       ) {
-        alert("Black wins");
+        victory.push(disco);
       }
     }
   }
@@ -95,20 +98,19 @@ const verticalCheck = (arr) => {
     let red = 0;
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-      if (disco === "player_red") {
-        red++;
-        black = 0;
+      if (disco !== undefined) {
+        if (disco === "player_red") {
+          red++;
+          black = 0;
+        }
+        if (disco === "player_black") {
+          black++;
+          red = 0;
+        }
       }
-      if (disco === "player_black") {
-        black++;
-        red = 0;
+      if (black === 4 || red === 4) {
+        victory.push(disco);
       }
-    }
-    if (black === 4) {
-      setTimeout(() => alert("Black wins"), 500);
-    }
-    if (red === 4) {
-      setTimeout(() => alert("Red wins"), 500);
     }
   }
 };
@@ -124,7 +126,7 @@ const diagonalCheck = (arr) => {
         if (disco === arr[i + 1][j + 1]) {
           if (disco === arr[i + 2][j + 2]) {
             if (disco === arr[i + 3][j + 3]) {
-              alert(disco);
+              victory.push(disco);
             }
           }
         }
@@ -141,11 +143,20 @@ const diagonalCheck = (arr) => {
         if (disco === arr[i - 1][j + 1]) {
           if (disco === arr[i - 2][j + 2]) {
             if (disco === arr[i - 3][j + 3]) {
-              alert(disco);
+              victory.push(disco);
             }
           }
         }
       }
     }
+  }
+};
+
+const winCondition = () => {
+  if (victory[0] === "player_red") {
+    console.log(`Red wins`);
+  }
+  if (victory[0] === "player_black") {
+    console.log(`Black wins`);
   }
 };
