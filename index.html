@@ -10,24 +10,30 @@
   <body>
     <header>
       <img src="./assets/img/logo.png" alt="Lig 4">
-      <img src="./assets/img/Black_and_White_logo.png" alt="Black&White">
+      <img src="./assets/img/Black_and_White_logo.png" alt="Black&White" class="blackwhite">
     </header>
+    <div class="scoreMobile">
+      <div>
+        <span class="scoreP1"></span>
+        :
+        <span class="scoreP2"></span>
+      </div>
+    </div>
     <div class="players">
       <div id="player1">
         <img src="./assets/img/player1.png" alt="Player 1">
-        <figure>
           <img src="./assets/img/Nate.png" alt="Nate">
-        </figure>
-        <img src="./assets/img/score.png" alt="scoreboard">
-        <div id="scoreP1"></div>
+        <div class="scoreboard hidden">
+          <img src="./assets/img/score.png" alt="scoreboard">
+          <div class="scoreP1"></div>
+        </div>
       </div>
-      <div id="player2">
-        <img src="./assets/img/player2.png" alt="player 2">
-        <figure>
-          <img src="./assets/img/Rosa.png" alt="Rosa">
-        </figure>
+    <div id="player2">
+      <img src="./assets/img/player2.png" alt="player 2">
+        <img src="./assets/img/Rosa.png" alt="Rosa">
+      <div class="scoreboard hidden">
         <img src="./assets/img/score.png" alt="scoreboard">
-        <div id="scoreP2"></div>
+        <div class="scoreP2"></div>
       </div>
     </div>
     <main id="tab"></main>
