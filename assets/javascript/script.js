@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start");
+const resetButton = document.getElementById("reset");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
@@ -169,3 +170,9 @@ const showTable = () => {
 };
 
 startButton.addEventListener("click", showTable);
+
+const resetGame = () => {
+  tab.innerHTML = ""
+}
+
+resetButton.addEventListener("click", resetGame);
