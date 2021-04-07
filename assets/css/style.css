@@ -22,6 +22,22 @@ section {
   }
 
 /* GERAL */
+body{
+  background-image: url(../img/arena.jpg);
+  background-position: center;
+}
+
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .players{
+    display: flex;
+    justify-content: space-between;
+  }
 
 /* PLAYER STYLE'S */
 .player_red,
