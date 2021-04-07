@@ -12,10 +12,16 @@ const resetGame = () => {
   victory = [];
   array = [[], [], [], [], [], [], []];
   currentPlayer = player1;
-}
+};
 
 const createPlayers = (current) => {
-  const player = document.createElement("div");
+  const player = document.createElement("img");
+  if (current === "player_red") {
+    player.src = `/assets/img/reshiram.png`;
+  }
+  if (current === "player_black") {
+    player.src = `/assets/img/zekrom.png`;
+  }
   player.classList.add(`${current}`);
   return player;
 };
@@ -155,14 +161,26 @@ const diagonalCheck = (arr) => {
 
 const winCondition = () => {
   if (victory[0] === "player_red") {
-    setTimeout(function(){ alert(`Red wins`) }, 600);
-    setTimeout(function(){ resetGame() }, 800);
-    setTimeout(function(){ startButton.classList.remove('hidden') }, 800);
+    setTimeout(function () {
+      alert(`Red wins`);
+    }, 600);
+    setTimeout(function () {
+      resetGame();
+    }, 800);
+    setTimeout(function () {
+      startButton.classList.remove("hidden");
+    }, 800);
   }
   if (victory[0] === "player_black") {
-    setTimeout(function(){ alert(`Black wins`) }, 600);
-    setTimeout(function(){ resetGame() }, 800);
-    setTimeout(function(){ startButton.classList.remove('hidden') }, 800);
+    setTimeout(function () {
+      alert(`Black wins`);
+    }, 600);
+    setTimeout(function () {
+      resetGame();
+    }, 800);
+    setTimeout(function () {
+      startButton.classList.remove("hidden");
+    }, 800);
   }
 };
 
@@ -173,7 +191,7 @@ const showTable = () => {
   sections.forEach((elem) => {
     elem.addEventListener("click", sectionEvt);
   });
-  startButton.classList.add('hidden');
+  startButton.classList.add("hidden");
 };
 
 startButton.addEventListener("click", showTable);
