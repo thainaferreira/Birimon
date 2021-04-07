@@ -32,39 +32,50 @@ body {
     justify-content: space-between;
   }
 
-#tab {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* background-image: url("/assets/img/pokeball.png"); */
-}  
-
-  #tab .col {
-    height: 665px;
-    width: 97px;
-    border: 1px solid black;
+  #tab {
     display: flex;
-    flex-direction: column-reverse;
-  }
+    flex-direction: row;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-image: url("/assets/img/pokeball.png"); */
+  }  
 
-    #tab .col .player_red,
-    #tab .col .player_black {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      position: relative;
-      animation: mymove 500ms ease-in-out;
+    #tab .col {
+      height: 665px;
+      width: 97px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column-reverse;
     }
 
-body #start {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+      #tab .col .player_red,
+      #tab .col .player_black {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        position: relative;
+        animation: mymove 500ms ease-in-out;
+      }
+
+  #btnStart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #endPopUp {
+    text-align: center;
+    width: 400px;
+    height: 100px;
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 /* EXTRA */
 

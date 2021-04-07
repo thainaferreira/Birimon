@@ -1,10 +1,11 @@
-const startButton = document.getElementById("start");
-const resetButton = document.getElementById("reset");
+const startButton = document.getElementById("btnStart");
+const acceptButton = document.getElementById("btnAccept");
+const tab = document.getElementById("tab");
+const endPopUp = document.getElementById('endPopUp');
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
 let victory = [];
-const tab = document.getElementById("tab");
 let array = [[], [], [], [], [], [], []];
 
 const resetGame = () => {
@@ -12,18 +13,6 @@ const resetGame = () => {
   victory = [];
   array = [[], [], [], [], [], [], []];
   currentPlayer = player1;
-};
-
-const createPlayers = (current) => {
-  const player = document.createElement("img");
-  if (current === "player_red") {
-    player.src = `./assets/img/reshiram.png`;
-  }
-  if (current === "player_black") {
-    player.src = `./assets/img/zekrom.png`;
-  }
-  player.classList.add(`${current}`);
-  return player;
 };
 
 const createTab = () => {
@@ -35,26 +24,23 @@ const createTab = () => {
   }
 };
 
-const sectionEvt = (evt) => {
-  let element = createPlayers(currentPlayer);
-  let currentCollum = evt.currentTarget;
-
-  if (verifyLimit(currentCollum)) {
-    currentCollum.appendChild(element);
-    storingCurrentColor(currentCollum);
-    changeCurrentPlayer(currentPlayer);
+const createPlayers = (current) => {
+  const player = document.createElement("img");
+  if (current === "player_red") {
+    player.src = `./assets/img/reshiram.png`;
+  } else if (current === "player_black") {
+    player.src = `./assets/img/zekrom.png`;
   }
-  horizontalCheck(array);
-  verticalCheck(array);
-  diagonalCheck(array);
-  winCondition();
+  player.classList.add(`${current}`);
+  return player;
 };
 
-const changeCurrentPlayer = () => {
-  if (currentPlayer === player1) {
-    currentPlayer = player2;
+const verifyLimit = (column) => {
+  let id = column.id;
+  if (array[id].length === 6) {
+    return false;
   } else {
-    currentPlayer = player1;
+    return true;
   }
 };
 
@@ -64,12 +50,11 @@ const storingCurrentColor = (currentSection) => {
   array[idCurrentSection][positionCurrentElem - 1] = currentPlayer;
 };
 
-const verifyLimit = (column) => {
-  let id = column.id;
-  if (array[id].length === 6) {
-    return false;
+const changeCurrentPlayer = () => {
+  if (currentPlayer === player1) {
+    currentPlayer = player2;
   } else {
-    return true;
+    currentPlayer = player1;
   }
 };
 
@@ -105,15 +90,13 @@ const verticalCheck = (arr) => {
     let red = 0;
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-      if (disco !== undefined) {
-        if (disco === "player_red") {
-          red++;
-          black = 0;
-        }
-        if (disco === "player_black") {
-          black++;
-          red = 0;
-        }
+
+      if (disco === "player_red") {
+        red++;
+        black = 0;
+      } else if (disco === "player_black") {
+        black++;
+        red = 0;
       }
       if (black === 4 || red === 4) {
         victory.push(disco);
@@ -128,13 +111,11 @@ const diagonalCheck = (arr) => {
     let section = arr[i];
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-
-      if (disco != undefined) {
-        if (disco === arr[i + 1][j + 1]) {
-          if (disco === arr[i + 2][j + 2]) {
-            if (disco === arr[i + 3][j + 3]) {
-              victory.push(disco);
-            }
+  
+      if (disco === arr[i + 1][j + 1]) {
+        if (disco === arr[i + 2][j + 2]) {
+          if (disco === arr[i + 3][j + 3]) {
+            victory.push(disco);
           }
         }
       }
@@ -146,12 +127,10 @@ const diagonalCheck = (arr) => {
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
 
-      if (disco != undefined) {
-        if (disco === arr[i - 1][j + 1]) {
-          if (disco === arr[i - 2][j + 2]) {
-            if (disco === arr[i - 3][j + 3]) {
-              victory.push(disco);
-            }
+      if (disco === arr[i - 1][j + 1]) {
+        if (disco === arr[i - 2][j + 2]) {
+          if (disco === arr[i - 3][j + 3]) {
+            victory.push(disco);
           }
         }
       }
@@ -159,32 +138,56 @@ const diagonalCheck = (arr) => {
   }
 };
 
+const endOfGame = (winner) => {
+  const newP = document.createElement('p');
+  if (winner === false) {
+    newP.innerText = 'Empate';
+  } else {
+    newP.innerText = `${winner} ganhou!`;
+  }
+  endPopUp.insertBefore(newP,endPopUp.childNodes[0]);
+  endPopUp.classList.remove('hidden');
+}
+
 const winCondition = () => {
   if (victory[0] === "player_red") {
     setTimeout(function () {
-      alert(`Red wins`);
+      endOfGame('Player 1');
     }, 600);
     setTimeout(function () {
       resetGame();
-    }, 800);
-    setTimeout(function () {
-      startButton.classList.remove("hidden");
     }, 800);
   }
   if (victory[0] === "player_black") {
     setTimeout(function () {
-      alert(`Black wins`);
+     endOfGame('Player 2');
     }, 600);
     setTimeout(function () {
       resetGame();
     }, 800);
-    setTimeout(function () {
-      startButton.classList.remove("hidden");
-    }, 800);
   }
 };
 
-const showTable = () => {
+// FUNCTION EMPATE
+
+// FUNCTION EMPATE
+
+const sectionEvt = (evt) => {
+  let element = createPlayers(currentPlayer);
+  let currentCollum = evt.currentTarget;
+
+  if (verifyLimit(currentCollum)) {
+    currentCollum.appendChild(element);
+    storingCurrentColor(currentCollum);
+    changeCurrentPlayer(currentPlayer);
+  }
+  horizontalCheck(array);
+  verticalCheck(array);
+  diagonalCheck(array);
+  winCondition();
+};
+
+const init = () => {
   resetGame();
   createTab();
   const sections = document.querySelectorAll(".col");
@@ -194,5 +197,9 @@ const showTable = () => {
   startButton.classList.add("hidden");
 };
 
-startButton.addEventListener("click", showTable);
-// resetButton.addEventListener("click", resetGame);
+startButton.addEventListener("click", init);
+acceptButton.addEventListener("click", function(){
+  endPopUp.classList.add('hidden');
+  endPopUp.removeChild(endPopUp.childNodes[0]);
+  startButton.classList.remove("hidden");
+})
