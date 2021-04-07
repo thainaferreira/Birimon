@@ -27,6 +27,7 @@ const createPlayers = (current) => {
 };
 
 const createTab = () => {
+  tab.classList.remove("hidden");
   for (let i = 0; i < 7; i++) {
     let newSection = document.createElement("section");
     newSection.id = i;
@@ -170,6 +171,9 @@ const winCondition = () => {
     setTimeout(function () {
       startButton.classList.remove("hidden");
     }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
+    }, 800);
   }
   if (victory[0] === "player_black") {
     setTimeout(function () {
@@ -180,6 +184,9 @@ const winCondition = () => {
     }, 800);
     setTimeout(function () {
       startButton.classList.remove("hidden");
+    }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
     }, 800);
   }
 };
