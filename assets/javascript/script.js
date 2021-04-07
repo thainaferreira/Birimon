@@ -7,6 +7,13 @@ let victory = [];
 const tab = document.getElementById("tab");
 let array = [[], [], [], [], [], [], []];
 
+const resetGame = () => {
+  tab.innerHTML = "";
+  victory = [];
+  array = [[], [], [], [], [], [], []];
+  currentPlayer = player1;
+}
+
 const createPlayers = (current) => {
   const player = document.createElement("div");
   player.classList.add(`${current}`);
@@ -22,8 +29,6 @@ const createTab = () => {
   }
 };
 
-const sections = document.querySelectorAll(".col");
-
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
   let currentCollum = evt.currentTarget;
@@ -38,10 +43,6 @@ const sectionEvt = (evt) => {
   diagonalCheck(array);
   winCondition();
 };
-
-sections.forEach((elem) => {
-  elem.addEventListener("click", sectionEvt);
-});
 
 const changeCurrentPlayer = () => {
   if (currentPlayer === player1) {
@@ -154,25 +155,26 @@ const diagonalCheck = (arr) => {
 
 const winCondition = () => {
   if (victory[0] === "player_red") {
-    console.log(`Red wins`);
+    setTimeout(function(){ alert(`Red wins`) }, 600);
+    setTimeout(function(){ resetGame() }, 800);
+    setTimeout(function(){ startButton.classList.remove('hidden') }, 800);
   }
   if (victory[0] === "player_black") {
-    console.log(`Black wins`);
+    setTimeout(function(){ alert(`Black wins`) }, 600);
+    setTimeout(function(){ resetGame() }, 800);
+    setTimeout(function(){ startButton.classList.remove('hidden') }, 800);
   }
 };
 
 const showTable = () => {
+  resetGame();
   createTab();
   const sections = document.querySelectorAll(".col");
   sections.forEach((elem) => {
     elem.addEventListener("click", sectionEvt);
   });
+  startButton.classList.add('hidden');
 };
 
 startButton.addEventListener("click", showTable);
-
-const resetGame = () => {
-  tab.innerHTML = ""
-}
-
-resetButton.addEventListener("click", resetGame);
+// resetButton.addEventListener("click", resetGame);

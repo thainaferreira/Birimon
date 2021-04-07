@@ -10,6 +10,19 @@ section {
 }
 /*RESET*/
 
+/* GERAL */
+  #tab {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .hidden {
+    display: none;
+  }
+
+/* GERAL */
+
 /* PLAYER STYLE'S */
 .player_red,
 .player_black {
