@@ -1,8 +1,8 @@
+const startButton = document.getElementById("start");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
 let victory = [];
-console.log(victory);
 const tab = document.getElementById("tab");
 let array = [[], [], [], [], [], [], []];
 
