@@ -20,7 +20,6 @@ const createTab = () => {
     tab.appendChild(newSection);
   }
 };
-createTab();
 
 const sections = document.querySelectorAll(".col");
 
@@ -160,3 +159,9 @@ const winCondition = () => {
     console.log(`Black wins`);
   }
 };
+
+const showTable = () => {
+  createTab();
+};
+
+startButton.addEventListener("click", showTable);
