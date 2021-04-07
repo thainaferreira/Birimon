@@ -17,10 +17,10 @@ const resetGame = () => {
 const createPlayers = (current) => {
   const player = document.createElement("img");
   if (current === "player_red") {
-    player.src = `/assets/img/reshiram.png`;
+    player.src = `./assets/img/reshiram.png`;
   }
   if (current === "player_black") {
-    player.src = `/assets/img/zekrom.png`;
+    player.src = `./assets/img/zekrom.png`;
   }
   player.classList.add(`${current}`);
   return player;

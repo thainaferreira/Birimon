@@ -1,4 +1,5 @@
-/*RESET*/
+/* GERAL */
+
 html,
 body,
 main,
@@ -8,9 +9,7 @@ section {
   padding: 0;
   box-sizing: border-box;
 }
-/*RESET*/
 
-/* GERAL */
 .hidden {
   display: none;
 }
@@ -21,31 +20,18 @@ body {
   background-position: center;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  body header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.players {
-  display: flex;
-  justify-content: space-between;
-}
+  body .players {
+    display: flex;
+    justify-content: space-between;
+  }
 
-/* PLAYER STYLE'S */
-.player_red,
-.player_black {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  position: relative;
-  animation: mymove 500ms ease-in-out;
-}
-
-/* PLAYER STYLE'S */
-
-/* TABLE STYLE */
 #tab {
   display: flex;
   flex-direction: row;
@@ -54,27 +40,34 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   /* background-image: url("/assets/img/pokeball.png"); */
-}
-/* TABLE STYLE */
+}  
 
-/* SECTION STYLE */
+  #tab .col {
+    height: 665px;
+    width: 97px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-.col {
-  height: 665px;
-  width: 97px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column-reverse;
-}
+    #tab .col .player_red,
+    #tab .col .player_black {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      position: relative;
+      animation: mymove 500ms ease-in-out;
+    }
 
-#start {
+body #start {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* SECTION STYLE */
+/* EXTRA */
+
 @keyframes mymove {
   0% {
     top: -300px;
@@ -89,3 +82,5 @@ header {
     top: 0px;
   }
 }
+
+/* EXTRA */
