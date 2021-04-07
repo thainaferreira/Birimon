@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 /* GERAL */
 html,
@@ -9,11 +9,7 @@ section {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.hidden {
-  display: none;
+  font-family: "Press Start 2P", cursive;
 }
 
 /* GERAL */
@@ -22,44 +18,46 @@ body {
   background-position: center;
 }
 
-  body header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+body header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    body header img{
-      width: 80px;
-    }
+body header img {
+  width: 80px;
+}
 
-      body header .blackwhite{
-        width: 200px;
-      }
+body header .blackwhite {
+  width: 200px;
+}
 
-  body .scoreMobile{
-    text-align: center;
-    margin: 0 auto;
-    font-size: 20px;
-    padding: 7px;
-    width: 80vw;
-  }
+body .scoreMobile {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 7px;
+  width: 80vw;
+}
 
-  body .players {
-    display: flex;
-    justify-content: space-between;
-  }
+body .players {
+  display: flex;
+  justify-content: space-between;
+}
 
-    body .players #player1, #player2{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 15px;
-    }
+body .players #player1,
+#player2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+}
 
-    body .players #player1 img, #player2 img{
-      width: 80px;
-    }
+body .players #player1 img,
+#player2 img {
+  width: 80px;
+}
 
 #tab {
   width: 100vw;
@@ -73,24 +71,24 @@ body {
   background-image: url("/assets/img/pokebola.png");
   background-position: center;
   background-size: cover;
-}  
+}
 
-  #tab .col {
-    height: 305px;
-    width: 14vw;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column-reverse;
-  }
+#tab .col {
+  height: 305px;
+  width: 14vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-    #tab .col .player_red,
-    #tab .col .player_black {
-      height: 8vh;
-      width: 14vw;
-      border-radius: 50%;
-      position: relative;
-      animation: mymove 500ms ease-in-out;
-    }
+#tab .col .player_red,
+#tab .col .player_black {
+  height: 8vh;
+  width: 14vw;
+  border-radius: 50%;
+  position: relative;
+  animation: mymove 500ms ease-in-out;
+}
 
 body #start {
   position: absolute;
@@ -99,9 +97,13 @@ body #start {
   transform: translate(-50%, -50%);
 }
 
-  body #start img{
-    width: 160px;
-  }
+body #start img {
+  width: 160px;
+}
+
+.hidden {
+  display: none;
+}
 
 /* EXTRA */
 
@@ -122,7 +124,7 @@ body #start {
 
 /* EXTRA */
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   #tab {
     display: flex;
     flex-direction: row;
@@ -131,7 +133,7 @@ body #start {
     left: 50%;
     transform: translate(-50%, -50%);
     /* background-image: url("/assets/img/pokeball.png"); */
-  }  
+  }
 
   body #start {
     top: 50%;
