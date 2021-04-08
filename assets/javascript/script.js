@@ -64,11 +64,11 @@ const storingCurrentColor = (currentSection) => {
 const changeCurrentPlayer = () => {
   if (currentPlayer === player1) {
     setTimeout(function(){ changeImgNate.src = `./assets/img/Nate.png` }, 480);
-    changeImgNate.src = `./assets/img/nateBall.png`; 
+    changeImgNate.src = `./assets/img/nateChallenge.png`; 
     currentPlayer = player2;
   } else {
     setTimeout(function(){ changeImgRosa.src = `./assets/img/Rosa.png`; }, 480);
-    changeImgRosa.src = `./assets/img/rosaBall.png`
+    changeImgRosa.src = `./assets/img/rosaChallenge.png`
     currentPlayer = player1;
   }
 };
