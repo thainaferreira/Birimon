@@ -1,11 +1,12 @@
 const startButton = document.getElementById("btnStart");
 const acceptButton = document.getElementById("btnAccept");
 const tab = document.getElementById("tab");
-const endPopUp = document.getElementById('endPopUp');
+const endPopUp = document.getElementById("endPopUp");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
 let victory = [];
+let score = [0, 0];
 let array = [[], [], [], [], [], [], []];
 
 const resetGame = () => {
@@ -112,7 +113,7 @@ const diagonalCheck = (arr) => {
     let section = arr[i];
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-  
+
       if (disco === arr[i + 1][j + 1]) {
         if (disco === arr[i + 2][j + 2]) {
           if (disco === arr[i + 3][j + 3]) {
@@ -140,20 +141,20 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const newP = document.createElement('p');
+  const newP = document.createElement("p");
   if (winner === false) {
-    newP.innerText = 'Empate';
+    newP.innerText = "Empate";
   } else {
     newP.innerText = `${winner} ganhou!`;
   }
-  endPopUp.insertBefore(newP,endPopUp.childNodes[0]);
-  endPopUp.classList.remove('hidden');
-}
+  endPopUp.insertBefore(newP, endPopUp.childNodes[0]);
+  endPopUp.classList.remove("hidden");
+};
 
 const winCondition = () => {
   if (victory[0] === "player_red") {
     setTimeout(function () {
-      endOfGame('Player 1');
+      endOfGame("Player 1");
     }, 600);
     setTimeout(function () {
       resetGame();
@@ -161,10 +162,11 @@ const winCondition = () => {
     setTimeout(function () {
       tab.classList.add("hidden");
     }, 800);
+    scoreboard("player1");
   }
   if (victory[0] === "player_black") {
     setTimeout(function () {
-     endOfGame('Player 2');
+      endOfGame("Player 2");
     }, 600);
     setTimeout(function () {
       resetGame();
@@ -172,9 +174,23 @@ const winCondition = () => {
     setTimeout(function () {
       tab.classList.add("hidden");
     }, 800);
+    scoreboard("player2");
   }
 };
 
+const scoreboard = (player) => {
+  let scorePlayer1 = document.querySelector(".scoreP1");
+  let scorePlayer2 = document.querySelector(".scoreP2");
+  if (player === "player1") {
+    score[0]++;
+  }
+  if (player === "player2") {
+    score[1]++;
+  }
+  scorePlayer1.innerText = `${score[0]}`;
+  scorePlayer2.innerText = `${score[1]}`;
+};
+scoreboard();
 // FUNCTION EMPATE
 const gameTied = () => {
   let count = 0;
@@ -224,8 +240,8 @@ const init = () => {
 };
 
 startButton.addEventListener("click", init);
-acceptButton.addEventListener("click", function(){
-  endPopUp.classList.add('hidden');
+acceptButton.addEventListener("click", function () {
+  endPopUp.classList.add("hidden");
   endPopUp.removeChild(endPopUp.childNodes[0]);
   startButton.classList.remove("hidden");
-})
+});
