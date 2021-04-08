@@ -22,7 +22,7 @@ body {
   background-position: center;
 }
 
-body #playAudio{
+body #playAudio {
   margin-left: 20px;
   margin-top: 10px;
 }
@@ -46,8 +46,12 @@ body .scoreMobile {
   text-align: center;
   margin: 0 auto;
   font-size: 20px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
   padding: 7px;
-  width: 80vw;
+  width: 32vw;
+  position: absolute;
 }
 
 body .players {
@@ -55,7 +59,7 @@ body .players {
   justify-content: space-between;
 }
 
-body .players .scoreboard{
+body .players .scoreboard {
   display: none;
 }
 
@@ -75,12 +79,11 @@ body .players #player2 img {
 body .table {
   /* COLOCAR MAX-WIDTH */
   /* COLOCAR MAX-WIDTH */
-  width: 100vw;
-  height: 50vh;
+  height: 286px;
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 70%;
+  top: 73%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-image: url("../img/pokebola.png");
@@ -89,8 +92,7 @@ body .table {
 }
 
 body .table .col {
-  height: 305px;
-  width: 14vw;
+  width: 48px;
   border: 1px solid black;
   display: flex;
   flex-direction: column-reverse;
@@ -185,7 +187,7 @@ body main.table.hidden {
     flex-direction: row;
     height: 600px;
     width: 657px;
-    top: 56%;
+    top: 59%;
     background-image: url(/assets/img/pokebola.png);
     background-repeat: no-repeat;
   }
@@ -204,18 +206,19 @@ body main.table.hidden {
     height: 100px;
   }
 
-  body .scoreMobile{
+  body .scoreMobile {
     display: none;
   }
 
-  body .players .scoreboard{
+  body .players .scoreboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  body .players .scorePlay1, .scorePlay2{
+  body .players .scorePlay1,
+  .scorePlay2 {
     font-size: 55px;
     padding-top: 20px;
   }
@@ -229,6 +232,13 @@ body main.table.hidden {
     top: 41%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  body .players {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
   }
 
   /* SCORE DESKTOP */
