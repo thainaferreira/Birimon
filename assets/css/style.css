@@ -1,5 +1,6 @@
-/* GERAL */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+/* GERAL */
 html,
 body,
 main,
@@ -8,13 +9,14 @@ section {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
 }
 
 .hidden {
   display: none;
 }
-
 /* GERAL */
+
 body {
   background-image: url(../img/arena.jpg);
   background-position: center;
@@ -27,46 +29,83 @@ body {
     flex-direction: column;
   }
 
+    body header img {
+      width: 80px;
+    }
+
+    body header .blackwhite {
+      width: 200px;
+    }
+
+  body .scoreMobile {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    padding: 7px;
+    width: 80vw;
+  }
+
   body .players {
     display: flex;
     justify-content: space-between;
   }
 
-  #tab {
+    body .players #player1,
+    body .players #player2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 15px;
+    }
+
+    body .players #player1 img,
+    body .players #player2 img {
+      width: 80px;
+    }
+
+  body .table {
+    width: 100vw;
+    height: 50vh;
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* background-image: url("/assets/img/pokeball.png"); */
-  }  
+    background-image: url("/assets/img/pokebola.png");
+    background-position: center;
+    background-size: cover;
+  }
 
-    #tab .col {
-      height: 665px;
-      width: 97px;
+    body .table .col {
+      height: 305px;
+      width: 14vw;
       border: 1px solid black;
       display: flex;
       flex-direction: column-reverse;
     }
 
-      #tab .col .player_red,
-      #tab .col .player_black {
-        height: 50px;
-        width: 50px;
+      body .table .col .player_red,
+      body .table .col .player_black {
+        height: 8vh;
+        width: 14vw;
         border-radius: 50%;
         position: relative;
         animation: mymove 500ms ease-in-out;
       }
 
-  #btnStart {
+  body #btnStart {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  #endPopUp {
+    body #btnStart img {
+      width: 160px;
+    }
+
+  body #endPopUp {
     text-align: center;
     width: 400px;
     height: 100px;
@@ -95,3 +134,55 @@ body {
 }
 
 /* EXTRA */
+
+@media screen and (min-width: 768px) {
+  body header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+    body header img {
+      width: 120px;
+    }
+
+      body header .blackwhite {
+        width: 349px;
+      }
+
+  body .table {
+    flex-direction: row;
+    height: 600px;
+    width: 657px;
+    top: 56%;
+    background-image: url(/assets/img/pokebola.png);
+    background-repeat: no-repeat;
+  }
+
+    body .table .col {
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+      body .table .col .player_red,
+      body .table .col .player_black {
+        width: 100%;
+        height: 100px;
+      }
+
+  body .players #player1 img,
+  body .players #player2 img {
+    width: 200px;
+  }
+
+  body #btnStart {
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+}

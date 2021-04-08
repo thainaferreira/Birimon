@@ -16,6 +16,7 @@ const resetGame = () => {
 };
 
 const createTab = () => {
+  tab.classList.remove("hidden");
   for (let i = 0; i < 7; i++) {
     let newSection = document.createElement("section");
     newSection.id = i;
@@ -157,6 +158,9 @@ const winCondition = () => {
     setTimeout(function () {
       resetGame();
     }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
+    }, 800);
   }
   if (victory[0] === "player_black") {
     setTimeout(function () {
@@ -165,11 +169,14 @@ const winCondition = () => {
     setTimeout(function () {
       resetGame();
     }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
+    }, 800);
   }
 };
 
 // FUNCTION EMPATE
-
+ //vai usar o array
 // FUNCTION EMPATE
 
 const sectionEvt = (evt) => {
