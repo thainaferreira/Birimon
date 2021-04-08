@@ -21,6 +21,8 @@ const resetGame = () => {
   array = [[], [], [], [], [], [], []];
   currentPlayer = player1;
   notWin = true;
+  changeImgNate.src = `./assets/img/Nate.png`;
+  changeImgRosa.src = `./assets/img/Rosa.png`;
 };
 
 const createTab = () => {
