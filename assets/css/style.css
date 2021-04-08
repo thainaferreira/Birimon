@@ -124,6 +124,9 @@ body {
   }
 
   /* ESTILOS DIV QUE FINALIZA GAME */
+  #endPopUp {
+    border-radius: 5px;
+  }
   /* ESTILOS DIV QUE FINALIZA GAME */
 
 /* EXTRA */

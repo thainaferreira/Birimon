@@ -145,13 +145,17 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const message = document.getElementById('message');
+  const imgWinner = document.getElementById('imgEnd');
   if (winner === false) {
-    message.innerText = "Empate";
+    imgWinner.src = './assets/img/Draw.png';
   } else {
-    message.innerText = `${winner} ganhou!`;
+    if (winner === 'Player 1') {
+      imgWinner.src = './assets/img/player1Win.png'
+    } else if (winner === 'Player 2'){
+      imgWinner.src = './assets/img/player2Win.png'
+    }
   }
-  endPopUp.insertBefore(message, endPopUp.childNodes[0]);
+  endPopUp.insertBefore(imgWinner, endPopUp.childNodes[0]);
   endPopUp.classList.remove("hidden");
 };
 
