@@ -35,6 +35,8 @@ const createPlayers = (current) => {
   }
   player.classList.add(`${current}`);
   return player;
+  //MELHORAR ANIMAÇÃO DE CAIDA
+  //MELHORAR ANIMAÇÃO DE CAIDA
 };
 
 const verifyLimit = (column) => {
@@ -236,6 +238,9 @@ const init = () => {
   });
   startButton.classList.add("hidden");
 };
+
+// CHANGE SRC OF IMAGE (MOSTRAR QUAL PLAYER ESTA JOGANDO ATUALMENTE)
+// CHANGE SRC OF IMAGE (MOSTRAR QUAL PLAYER ESTA JOGANDO ATUALMENTE)
 
 startButton.addEventListener("click", init);
 acceptButton.addEventListener("click", function () {

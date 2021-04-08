@@ -64,6 +64,8 @@ body {
     }
 
   body .table {
+    /* COLOCAR MAX-WIDTH */
+    /* COLOCAR MAX-WIDTH */
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -120,6 +122,9 @@ body {
   body main.table.hidden {
     display: none;
   }
+
+  /* ESTILOS DIV QUE FINALIZA GAME */
+  /* ESTILOS DIV QUE FINALIZA GAME */
 
 /* EXTRA */
 
@@ -189,5 +194,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  /* SCORE DESKTOP */
+  /* SCORE DESKTOP */
   
 }
