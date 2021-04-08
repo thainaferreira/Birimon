@@ -140,15 +140,15 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const newP = document.createElement('p');
+  const message = document.getElementById('message');
   if (winner === false) {
-    newP.innerText = 'Empate';
+    message.innerText = "Empate";
   } else {
-    newP.innerText = `${winner} ganhou!`;
+    message.innerText = `${winner} ganhou!`;
   }
-  endPopUp.insertBefore(newP,endPopUp.childNodes[0]);
-  endPopUp.classList.remove('hidden');
-}
+  endPopUp.insertBefore(message, endPopUp.childNodes[0]);
+  endPopUp.classList.remove("hidden");
+};
 
 const winCondition = () => {
   if (victory[0] === "player_red") {
@@ -175,9 +175,39 @@ const winCondition = () => {
   }
 };
 
-// FUNCTION EMPATE
- //vai usar o array
-// FUNCTION EMPATE
+const scoreboard = (player) => {
+  let scorePlayer1 = document.querySelector(".scoreP1");
+  let scorePlayer2 = document.querySelector(".scoreP2");
+  if (player === "player1") {
+    score[0]++;
+  }
+  if (player === "player2") {
+    score[1]++;
+  }
+  scorePlayer1.innerText = `${score[0]}`;
+  scorePlayer2.innerText = `${score[1]}`;
+};
+scoreboard();
+
+const gameTied = () => {
+  let count = 0;
+  for (let i = 0; i < 7; i++) {
+    if (array[i].length === 6) {
+      count += 1
+    }
+  }
+  if (count === 7) {
+    setTimeout(function () {
+      endOfGame(false);
+     }, 600);
+    setTimeout(function () {
+      resetGame();
+    }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
+    }, 800);
+  }
+}
 
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
@@ -205,8 +235,7 @@ const init = () => {
 };
 
 startButton.addEventListener("click", init);
-acceptButton.addEventListener("click", function(){
-  endPopUp.classList.add('hidden');
-  endPopUp.removeChild(endPopUp.childNodes[0]);
+acceptButton.addEventListener("click", function () {
+  endPopUp.classList.add("hidden");
   startButton.classList.remove("hidden");
 })

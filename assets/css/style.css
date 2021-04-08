@@ -72,7 +72,7 @@ body {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("/assets/img/pokebola.png");
+    background-image: url("../img/pokebola.png");
     background-position: center;
     background-size: cover;
   }
@@ -135,7 +135,7 @@ body {
 
 /* EXTRA */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   body header {
     display: flex;
     justify-content: center;
