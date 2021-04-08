@@ -116,6 +116,11 @@ body {
     transform: translate(-50%, -50%);
   }
 
+  /*IMPORTANTE: ARRUMAR DEPOIS*/
+  body main.table.hidden {
+    display: none;
+  }
+
 /* EXTRA */
 
 @keyframes mymove {
