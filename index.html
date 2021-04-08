@@ -8,6 +8,11 @@
     <title>Document</title>
   </head>
   <body>
+    <audio src="./assets/song/pokemon_black_and_white_music_title_screen.mp3"></audio>
+    <div id="playAudio">
+      <img src="./assets/img/alto-falante-de-audio-ligado.png" alt="Stop Music" id="stopAudio">
+      <img src="./assets/img/alto-falante-de-audio-desligado.png" alt="Play Music" id="startAudio">
+    </div>
     <header>
       <img src="./assets/img/logo.png" alt="Lig 4">
       <img src="./assets/img/Black_and_White_logo.png" alt="Black&White" class="blackwhite">
@@ -15,8 +20,10 @@
     <!-- MUSICA -->
     <!-- MUSICA -->
     <div id="endPopUp" class="hidden">
-      <p id="message"></p>
-      <button id="btnAccept">Accept!</button>
+      <img src="" id="imgEnd">
+      <button id="btnAccept">
+        <img src="./assets/img/accept.png" alt="">
+      </button>
     </div>
     <div class="scoreMobile">
       <div>
@@ -31,7 +38,7 @@
           <img id="nate" src="./assets/img/Nate.png" alt="Nate">
         <div class="scoreboard hidden">
           <img src="./assets/img/score.png" alt="scoreboard">
-          <div class="scoreP1"></div>
+          <span class="scorePlay1"></span>
         </div>
       </div>
       <div id="player2">
@@ -39,7 +46,7 @@
           <img id="rosa" src="./assets/img/Rosa.png" alt="Rosa">
         <div class="scoreboard hidden">
           <img src="./assets/img/score.png" alt="scoreboard">
-          <div class="scoreP2"></div>
+          <span class="scorePlay2"></span>
         </div>
       </div>
     </div>

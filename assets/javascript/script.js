@@ -4,6 +4,9 @@ const tab = document.getElementById("tab");
 const endPopUp = document.getElementById("endPopUp");
 const changeImgNate = document.getElementById("nate");
 const changeImgRosa = document.getElementById("rosa");
+const playAudio = document.getElementById("playAudio");
+const startAudio = document.getElementById("startAudio");
+const stopAudio = document.getElementById("stopAudio");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
@@ -151,13 +154,17 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const message = document.getElementById('message');
+  const imgWinner = document.getElementById('imgEnd');
   if (winner === false) {
-    message.innerText = "Empate";
+    imgWinner.src = './assets/img/Draw.png';
   } else {
-    message.innerText = `${winner} ganhou!`;
+    if (winner === 'Player 1') {
+      imgWinner.src = './assets/img/player1Win.png'
+    } else if (winner === 'Player 2'){
+      imgWinner.src = './assets/img/player2Win.png'
+    }
   }
-  endPopUp.insertBefore(message, endPopUp.childNodes[0]);
+  endPopUp.insertBefore(imgWinner, endPopUp.childNodes[0]);
   endPopUp.classList.remove("hidden");
 };
 
@@ -193,6 +200,8 @@ const winCondition = () => {
 const scoreboard = (player) => {
   let scorePlayer1 = document.querySelector(".scoreP1");
   let scorePlayer2 = document.querySelector(".scoreP2");
+  let scorePlayerDesktop1 = document.querySelector(".scorePlay1");
+  let scorePlayerDesktop2 = document.querySelector(".scorePlay2");
   if (player === "player1") {
     score[0]++;
   }
@@ -201,6 +210,8 @@ const scoreboard = (player) => {
   }
   scorePlayer1.innerText = `${score[0]}`;
   scorePlayer2.innerText = `${score[1]}`;
+  scorePlayerDesktop1.innerText = `${score[0]}`;
+  scorePlayerDesktop2.innerText = `${score[1]}`;
 };
 scoreboard();
 const gameTied = () => {
@@ -256,3 +267,21 @@ acceptButton.addEventListener("click", function () {
   endPopUp.classList.add("hidden");
   startButton.classList.remove("hidden");
 });
+
+
+stopAudio.style.display = "none"
+let audioPlaying = false
+playAudio.addEventListener('click', function(){
+  const audio = document.querySelector('audio')
+  if (!audioPlaying){
+    audio.play()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "none"
+    stopAudio.style.display = "block"
+  }else{
+    audio.pause()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "block"
+    stopAudio.style.display = "none"
+  }
+})
