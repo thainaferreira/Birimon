@@ -8,12 +8,14 @@ let currentPlayer = player1;
 let victory = [];
 let score = [0, 0];
 let array = [[], [], [], [], [], [], []];
+let notWin = true;
 
 const resetGame = () => {
   tab.innerHTML = "";
   victory = [];
   array = [[], [], [], [], [], [], []];
   currentPlayer = player1;
+  notWin = true;
 };
 
 const createTab = () => {
@@ -155,6 +157,7 @@ const endOfGame = (winner) => {
 
 const winCondition = () => {
   if (victory[0] === "player_red") {
+    notWin = false;
     setTimeout(function () {
       endOfGame("Player 1");
     }, 600);
@@ -167,6 +170,7 @@ const winCondition = () => {
     scoreboard("player1");
   }
   if (victory[0] === "player_black") {
+    notWin = false;
     setTimeout(function () {
       endOfGame("Player 2");
     }, 600);
@@ -226,7 +230,9 @@ const sectionEvt = (evt) => {
   verticalCheck(array);
   diagonalCheck(array);
   winCondition();
-  gameTied();
+  if (notWin) {
+    gameTied();
+  }
 };
 
 const init = () => {
