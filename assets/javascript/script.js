@@ -2,6 +2,9 @@ const startButton = document.getElementById("btnStart");
 const acceptButton = document.getElementById("btnAccept");
 const tab = document.getElementById("tab");
 const endPopUp = document.getElementById("endPopUp");
+const playAudio = document.getElementById("playAudio");
+const startAudio = document.getElementById("startAudio");
+const stopAudio = document.getElementById("stopAudio");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
@@ -145,13 +148,17 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const message = document.getElementById('message');
+  const imgWinner = document.getElementById('imgEnd');
   if (winner === false) {
-    message.innerText = "Empate";
+    imgWinner.src = './assets/img/Draw.png';
   } else {
-    message.innerText = `${winner} ganhou!`;
+    if (winner === 'Player 1') {
+      imgWinner.src = './assets/img/player1Win.png'
+    } else if (winner === 'Player 2'){
+      imgWinner.src = './assets/img/player2Win.png'
+    }
   }
-  endPopUp.insertBefore(message, endPopUp.childNodes[0]);
+  endPopUp.insertBefore(imgWinner, endPopUp.childNodes[0]);
   endPopUp.classList.remove("hidden");
 };
 
@@ -253,3 +260,21 @@ acceptButton.addEventListener("click", function () {
   endPopUp.classList.add("hidden");
   startButton.classList.remove("hidden");
 });
+
+
+stopAudio.style.display = "none"
+let audioPlaying = false
+playAudio.addEventListener('click', function(){
+  const audio = document.querySelector('audio')
+  if (!audioPlaying){
+    audio.play()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "none"
+    stopAudio.style.display = "block"
+  }else{
+    audio.pause()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "block"
+    stopAudio.style.display = "none"
+  }
+})

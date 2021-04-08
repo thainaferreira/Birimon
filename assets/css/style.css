@@ -22,14 +22,11 @@ body {
   background-position: center;
 }
 
-<<<<<<< Updated upstream
-=======
 body #playAudio {
   margin-left: 20px;
   margin-top: 10px;
 }
 
->>>>>>> Stashed changes
 body header {
   display: flex;
   justify-content: center;
@@ -119,6 +116,7 @@ body #btnStart img {
 
 body #endPopUp {
   text-align: center;
+  border-radius: 5px;
   width: 400px;
   height: 100px;
   background-color: lightgray;
@@ -132,9 +130,6 @@ body #endPopUp {
 body main.table.hidden {
   display: none;
 }
-
-/* ESTILOS DIV QUE FINALIZA GAME */
-/* ESTILOS DIV QUE FINALIZA GAME */
 
 /* EXTRA */
 
