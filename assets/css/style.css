@@ -128,16 +128,16 @@ body #endPopUp {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-  body #endPopUp.hidden {
-    display: none;
-  }
+body #endPopUp.hidden {
+  display: none;
+}
 
-  body #endPopUp #btnAccept {
-    padding: none;
-    border: 1px solid yellow;
-    border-radius: 5px;
-    background: none;
-  }
+body #endPopUp #btnAccept {
+  padding: none;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  background: none;
+}
 
 /*IMPORTANTE: ARRUMAR DEPOIS*/
 body main.table.hidden {
@@ -235,11 +235,9 @@ body main.table.hidden {
     display: flex;
     justify-content: space-between;
   }
-
 }
 
 @media screen and (min-width: 1480px) {
-
   body .table {
     height: 600px;
     width: 657px;
@@ -252,4 +250,8 @@ body main.table.hidden {
     height: 100px;
   }
 
+  body .players {
+    width: 85%;
+    margin: 0 auto;
+  }
 }
