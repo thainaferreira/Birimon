@@ -230,6 +230,11 @@ body main.table.hidden {
     transform: translate(-50%, -50%);
   }
 
+  body #endPopUp {
+    top: 58%;
+    
+  }
+
   body .players {
     width: 100%;
     display: flex;
