@@ -141,13 +141,13 @@ const diagonalCheck = (arr) => {
 };
 
 const endOfGame = (winner) => {
-  const newP = document.createElement("p");
+  const message = document.getElementById('message');
   if (winner === false) {
-    newP.innerText = "Empate";
+    message.innerText = "Empate";
   } else {
-    newP.innerText = `${winner} ganhou!`;
+    message.innerText = `${winner} ganhou!`;
   }
-  endPopUp.insertBefore(newP, endPopUp.childNodes[0]);
+  endPopUp.insertBefore(message, endPopUp.childNodes[0]);
   endPopUp.classList.remove("hidden");
 };
 
@@ -191,7 +191,6 @@ const scoreboard = (player) => {
   scorePlayer2.innerText = `${score[1]}`;
 };
 scoreboard();
-// FUNCTION EMPATE
 const gameTied = () => {
   let count = 0;
   for (let i = 0; i < 7; i++) {
@@ -211,7 +210,6 @@ const gameTied = () => {
     }, 800);
   }
 }
-// FUNCTION EMPATE
 
 const sectionEvt = (evt) => {
   let element = createPlayers(currentPlayer);
@@ -242,6 +240,5 @@ const init = () => {
 startButton.addEventListener("click", init);
 acceptButton.addEventListener("click", function () {
   endPopUp.classList.add("hidden");
-  endPopUp.removeChild(endPopUp.childNodes[0]);
   startButton.classList.remove("hidden");
 });
