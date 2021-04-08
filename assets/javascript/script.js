@@ -194,6 +194,8 @@ const winCondition = () => {
 const scoreboard = (player) => {
   let scorePlayer1 = document.querySelector(".scoreP1");
   let scorePlayer2 = document.querySelector(".scoreP2");
+  let scorePlayerDesktop1 = document.querySelector(".scorePlay1");
+  let scorePlayerDesktop2 = document.querySelector(".scorePlay2");
   if (player === "player1") {
     score[0]++;
   }
@@ -202,6 +204,8 @@ const scoreboard = (player) => {
   }
   scorePlayer1.innerText = `${score[0]}`;
   scorePlayer2.innerText = `${score[1]}`;
+  scorePlayerDesktop1.innerText = `${score[0]}`;
+  scorePlayerDesktop2.innerText = `${score[1]}`;
 };
 scoreboard();
 const gameTied = () => {
