@@ -2,6 +2,8 @@ const startButton = document.getElementById("btnStart");
 const acceptButton = document.getElementById("btnAccept");
 const tab = document.getElementById("tab");
 const endPopUp = document.getElementById("endPopUp");
+const changeImgNate = document.getElementById("nate");
+const changeImgRosa = document.getElementById("rosa");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
@@ -58,8 +60,12 @@ const storingCurrentColor = (currentSection) => {
 
 const changeCurrentPlayer = () => {
   if (currentPlayer === player1) {
+    changeImgNate.src = `./assets/img/nateBall.png`;
+    changeImgRosa.src = `./assets/img/Rosa.png`;
     currentPlayer = player2;
   } else {
+    changeImgRosa.src = `./assets/img/rosaBall.png`;
+    changeImgNate.src = `./assets/img/Nate.png`;
     currentPlayer = player1;
   }
 };
@@ -244,9 +250,6 @@ const init = () => {
   });
   startButton.classList.add("hidden");
 };
-
-// CHANGE SRC OF IMAGE (MOSTRAR QUAL PLAYER ESTA JOGANDO ATUALMENTE)
-// CHANGE SRC OF IMAGE (MOSTRAR QUAL PLAYER ESTA JOGANDO ATUALMENTE)
 
 startButton.addEventListener("click", init);
 acceptButton.addEventListener("click", function () {
