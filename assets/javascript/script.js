@@ -44,8 +44,6 @@ const createPlayers = (current) => {
   }
   player.classList.add(`${current}`);
   return player;
-  //MELHORAR ANIMAÇÃO DE CAIDA
-  //MELHORAR ANIMAÇÃO DE CAIDA
 };
 
 const verifyLimit = (column) => {
@@ -65,12 +63,12 @@ const storingCurrentColor = (currentSection) => {
 
 const changeCurrentPlayer = () => {
   if (currentPlayer === player1) {
-    changeImgNate.src = `./assets/img/nateBall.png`;
-    changeImgRosa.src = `./assets/img/Rosa.png`;
+    setTimeout(function(){ changeImgNate.src = `./assets/img/Nate.png` }, 480);
+    changeImgNate.src = `./assets/img/nateBall.png`; 
     currentPlayer = player2;
   } else {
-    changeImgRosa.src = `./assets/img/rosaBall.png`;
-    changeImgNate.src = `./assets/img/Nate.png`;
+    setTimeout(function(){ changeImgRosa.src = `./assets/img/Rosa.png`; }, 480);
+    changeImgRosa.src = `./assets/img/rosaBall.png`
     currentPlayer = player1;
   }
 };
@@ -268,6 +266,7 @@ startButton.addEventListener("click", init);
 acceptButton.addEventListener("click", function () {
   endPopUp.classList.add("hidden");
   startButton.classList.remove("hidden");
+
 });
 
 

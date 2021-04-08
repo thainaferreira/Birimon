@@ -181,10 +181,10 @@ body main.table.hidden {
 
   body .table {
     flex-direction: row;
-    height: 600px;
-    width: 657px;
-    top: 59%;
-    background-image: url(/assets/img/pokebola.png);
+    height: 444px;
+    width: 585px;
+    top: 69%;
+    background-image: url("../img/pokebola.png");
     background-repeat: no-repeat;
   }
 
@@ -199,7 +199,7 @@ body main.table.hidden {
   body .table .col .player_red,
   body .table .col .player_black {
     width: 100%;
-    height: 100px;
+    height: 74px;
   }
 
   body .scoreMobile {
@@ -231,12 +231,25 @@ body main.table.hidden {
   }
 
   body .players {
-    width: 85%;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  /* SCORE DESKTOP */
-  /* SCORE DESKTOP */
+}
+
+@media screen and (min-width: 1480px) {
+
+  body .table {
+    height: 600px;
+    width: 657px;
+    top: 59%;
+  }
+
+  body .table .col .player_red,
+  body .table .col .player_black {
+    width: 100%;
+    height: 100px;
+  }
+
 }
