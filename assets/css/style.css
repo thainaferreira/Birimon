@@ -55,6 +55,10 @@ body .players {
   justify-content: space-between;
 }
 
+body .players .scoreboard{
+  display: none;
+}
+
 body .players #player1,
 body .players #player2 {
   display: flex;
@@ -185,6 +189,22 @@ body main.table.hidden {
   body .table .col .player_black {
     width: 100%;
     height: 100px;
+  }
+
+  body .scoreMobile{
+    display: none;
+  }
+
+  body .players .scoreboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body .players .scorePlay1, .scorePlay2{
+    font-size: 55px;
+    padding-top: 20px;
   }
 
   body .players #player1 img,
