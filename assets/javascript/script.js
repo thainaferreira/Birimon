@@ -176,7 +176,25 @@ const winCondition = () => {
 };
 
 // FUNCTION EMPATE
- //vai usar o array
+const gameTied = () => {
+  let count = 0;
+  for (let i = 0; i < 7; i++) {
+    if (array[i].length === 6) {
+      count += 1
+    }
+  }
+  if (count === 7) {
+    setTimeout(function () {
+      endOfGame(false);
+     }, 600);
+    setTimeout(function () {
+      resetGame();
+    }, 800);
+    setTimeout(function () {
+      tab.classList.add("hidden");
+    }, 800);
+  }
+}
 // FUNCTION EMPATE
 
 const sectionEvt = (evt) => {
@@ -192,6 +210,7 @@ const sectionEvt = (evt) => {
   verticalCheck(array);
   diagonalCheck(array);
   winCondition();
+  gameTied();
 };
 
 const init = () => {
