@@ -2,6 +2,9 @@ const startButton = document.getElementById("btnStart");
 const acceptButton = document.getElementById("btnAccept");
 const tab = document.getElementById("tab");
 const endPopUp = document.getElementById("endPopUp");
+const playAudio = document.getElementById("playAudio");
+const startAudio = document.getElementById("startAudio");
+const stopAudio = document.getElementById("stopAudio");
 let player1 = "player_red";
 let player2 = "player_black";
 let currentPlayer = player1;
@@ -253,3 +256,21 @@ acceptButton.addEventListener("click", function () {
   endPopUp.classList.add("hidden");
   startButton.classList.remove("hidden");
 });
+
+
+stopAudio.style.display = "none"
+let audioPlaying = false
+playAudio.addEventListener('click', function(){
+  const audio = document.querySelector('audio')
+  if (!audioPlaying){
+    audio.play()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "none"
+    stopAudio.style.display = "block"
+  }else{
+    audio.pause()
+    audioPlaying = !audioPlaying
+    startAudio.style.display = "block"
+    stopAudio.style.display = "none"
+  }
+})
