@@ -22,6 +22,11 @@ body {
   background-position: center;
 }
 
+  body #playAudio{
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
   body header {
     display: flex;
     justify-content: center;
