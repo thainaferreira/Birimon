@@ -22,115 +22,115 @@ body {
   background-position: center;
 }
 
-  body header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+body header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    body header img {
-      width: 80px;
-    }
+body header img {
+  width: 80px;
+}
 
-    body header .blackwhite {
-      width: 200px;
-    }
+body header .blackwhite {
+  width: 200px;
+}
 
-  body .scoreMobile {
-    text-align: center;
-    margin: 0 auto;
-    font-size: 20px;
-    padding: 7px;
-    width: 80vw;
-  }
+body .scoreMobile {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 7px;
+  width: 80vw;
+}
 
-  body .players {
-    display: flex;
-    justify-content: space-between;
-  }
+body .players {
+  display: flex;
+  justify-content: space-between;
+}
 
-    body .players #player1,
-    body .players #player2 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 15px;
-    }
+body .players #player1,
+body .players #player2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+}
 
-    body .players #player1 img,
-    body .players #player2 img {
-      width: 80px;
-    }
+body .players #player1 img,
+body .players #player2 img {
+  width: 80px;
+}
 
-  body .table {
-    /* COLOCAR MAX-WIDTH */
-    /* COLOCAR MAX-WIDTH */
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url("../img/pokebola.png");
-    background-position: center;
-    background-size: cover;
-  }
+body .table {
+  /* COLOCAR MAX-WIDTH */
+  /* COLOCAR MAX-WIDTH */
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../img/pokebola.png");
+  background-position: center;
+  background-size: cover;
+}
 
-    body .table .col {
-      height: 305px;
-      width: 14vw;
-      border: 1px solid black;
-      display: flex;
-      flex-direction: column-reverse;
-    }
+body .table .col {
+  height: 305px;
+  width: 14vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-      body .table .col .player_red,
-      body .table .col .player_black {
-        height: 8vh;
-        width: 14vw;
-        border-radius: 50%;
-        position: relative;
-        animation: mymove 500ms ease-in-out;
-      }
+body .table .col .player_red,
+body .table .col .player_black {
+  height: 8vh;
+  width: 14vw;
+  border-radius: 50%;
+  position: relative;
+  animation: mymove 500ms ease-in-out;
+}
 
-  body #btnStart {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+body #btnStart {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-    body #btnStart img {
-      width: 160px;
-    }
+body #btnStart img {
+  width: 160px;
+}
 
-  body #endPopUp {
-    text-align: center;
-    width: 400px;
-    height: 100px;
-    background-color: lightgray;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+body #endPopUp {
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  background-color: lightgray;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  /*IMPORTANTE: ARRUMAR DEPOIS*/
-  body main.table.hidden {
-    display: none;
-  }
+/*IMPORTANTE: ARRUMAR DEPOIS*/
+body main.table.hidden {
+  display: none;
+}
 
-  /* ESTILOS DIV QUE FINALIZA GAME */
-  /* ESTILOS DIV QUE FINALIZA GAME */
+/* ESTILOS DIV QUE FINALIZA GAME */
+/* ESTILOS DIV QUE FINALIZA GAME */
 
 /* EXTRA */
 
 @keyframes mymove {
   0% {
-    top: -300px;
+    top: -1000px;
   }
   70% {
     top: 0px;
@@ -153,13 +153,13 @@ body {
     flex-direction: column;
   }
 
-    body header img {
-      width: 120px;
-    }
+  body header img {
+    width: 120px;
+  }
 
-      body header .blackwhite {
-        width: 349px;
-      }
+  body header .blackwhite {
+    width: 349px;
+  }
 
   body .table {
     flex-direction: row;
@@ -170,19 +170,19 @@ body {
     background-repeat: no-repeat;
   }
 
-    body .table .col {
-      width: 100%;
-      height: 100%;
-      border: 1px solid black;
-      display: flex;
-      flex-direction: column-reverse;
-    }
+  body .table .col {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
-      body .table .col .player_red,
-      body .table .col .player_black {
-        width: 100%;
-        height: 100px;
-      }
+  body .table .col .player_red,
+  body .table .col .player_black {
+    width: 100%;
+    height: 100px;
+  }
 
   body .players #player1 img,
   body .players #player2 img {
@@ -197,5 +197,4 @@ body {
 
   /* SCORE DESKTOP */
   /* SCORE DESKTOP */
-  
 }
