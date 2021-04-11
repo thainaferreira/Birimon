@@ -96,8 +96,8 @@ body .table .col {
   flex-direction: column-reverse;
 }
 
-body .table .col .player_red,
-body .table .col .player_black {
+body .table .col .player_one,
+body .table .col .player_two {
   border-radius: 50%;
   position: relative;
   animation: mymove 500ms ease-in-out;
@@ -196,8 +196,8 @@ body main.table.hidden {
     flex-direction: column-reverse;
   }
 
-  body .table .col .player_red,
-  body .table .col .player_black {
+  body .table .col .player_one,
+  body .table .col .player_two {
     width: 100%;
     height: 74px;
   }
@@ -213,8 +213,8 @@ body main.table.hidden {
     align-items: center;
   }
 
-  body .players .scorePlay1,
-  .scorePlay2 {
+  body .players .scoreP1,
+  .scoreP2 {
     font-size: 55px;
     padding-top: 20px;
   }
@@ -249,8 +249,8 @@ body main.table.hidden {
     top: 59%;
   }
 
-  body .table .col .player_red,
-  body .table .col .player_black {
+  body .table .col .player_one,
+  body .table .col .player_two {
     width: 100%;
     height: 100px;
   }

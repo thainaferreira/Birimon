@@ -7,8 +7,9 @@ const changeImgRosa = document.getElementById("rosa");
 const playAudio = document.getElementById("playAudio");
 const startAudio = document.getElementById("startAudio");
 const stopAudio = document.getElementById("stopAudio");
-let player1 = "player_red";
-let player2 = "player_black";
+const numSections = 7;
+let player1 = "player_one";
+let player2 = "player_two";
 let currentPlayer = player1;
 let victory = [];
 let score = [0, 0];
@@ -26,8 +27,8 @@ const resetGame = () => {
 
 const createTab = () => {
   tab.classList.remove("hidden");
-  for (let i = 0; i < 7; i++) {
-    let newSection = document.createElement("section");
+  for (let i = 0; i < numSections; i++) {
+    const newSection = document.createElement("section");
     newSection.id = i;
     newSection.classList.add("col");
     tab.appendChild(newSection);
@@ -36,9 +37,9 @@ const createTab = () => {
 
 const createPlayers = (current) => {
   const player = document.createElement("img");
-  if (current === "player_red") {
+  if (current === player1) {
     player.src = `./assets/img/reshiram.png`;
-  } else if (current === "player_black") {
+  } else if (current === player2) {
     player.src = `./assets/img/zekrom.png`;
   }
   player.classList.add(`${current}`);
@@ -46,8 +47,7 @@ const createPlayers = (current) => {
 };
 
 const verifyLimit = (column) => {
-  let id = column.id;
-  if (array[id].length === 6) {
+  if (column.childElementCount === 6) {
     return false;
   } else {
     return true;
@@ -55,9 +55,9 @@ const verifyLimit = (column) => {
 };
 
 const storingCurrentColor = (currentSection) => {
-  let positionCurrentElem = currentSection.childElementCount;
+  let positionCurrentElem = currentSection.childElementCount - 1;
   let idCurrentSection = parseInt(currentSection.id);
-  array[idCurrentSection][positionCurrentElem - 1] = currentPlayer;
+  array[idCurrentSection][positionCurrentElem] = currentPlayer;
 };
 
 const changeCurrentPlayer = () => {
@@ -80,16 +80,7 @@ const horizontalCheck = (arr) => {
       if (
         disco === arr[j + 1][i] &&
         disco === arr[j + 2][i] &&
-        disco === arr[j + 3][i] &&
-        disco === "player_red"
-      ) {
-        victory.push(disco);
-      }
-      if (
-        disco === arr[j + 1][i] &&
-        disco === arr[j + 2][i] &&
-        disco === arr[j + 3][i] &&
-        disco === "player_black"
+        disco === arr[j + 3][i]
       ) {
         victory.push(disco);
       }
@@ -100,19 +91,13 @@ const horizontalCheck = (arr) => {
 const verticalCheck = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let section = arr[i];
-    let black = 0;
-    let red = 0;
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-
-      if (disco === "player_red") {
-        red++;
-        black = 0;
-      } else if (disco === "player_black") {
-        black++;
-        red = 0;
-      }
-      if (black === 4 || red === 4) {
+      if (
+        disco === arr[j][i + 1] &&
+        disco === arr[j][i + 2] &&
+        disco === arr[j][i + 3]
+      ) {
         victory.push(disco);
       }
     }
@@ -120,33 +105,29 @@ const verticalCheck = (arr) => {
 };
 
 const diagonalCheck = (arr) => {
-  //VALIDAÇÃO DIREITA ABAIXO
   for (let i = 0; i < arr.length - 3; i++) {
     let section = arr[i];
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-
-      if (disco === arr[i + 1][j + 1]) {
-        if (disco === arr[i + 2][j + 2]) {
-          if (disco === arr[i + 3][j + 3]) {
-            victory.push(disco);
-          }
-        }
+      if (
+        disco === arr[i + 1][j + 1] &&
+        disco === arr[i + 2][j + 2] &&
+        disco === arr[i + 3][j + 3]
+      ) {
+        victory.push(disco);
       }
-    }
+    } 
   }
-  //VALIDAÇÃO ESQUERDA ABAIXO
   for (let i = 3; i < arr.length; i++) {
     let section = arr[i];
     for (let j = 0; j < section.length; j++) {
       let disco = section[j];
-
-      if (disco === arr[i - 1][j + 1]) {
-        if (disco === arr[i - 2][j + 2]) {
-          if (disco === arr[i - 3][j + 3]) {
-            victory.push(disco);
-          }
-        }
+      if (
+        disco === arr[i - 1][j + 1] &&
+        disco === arr[i - 2][j + 2] &&
+        disco === arr[i - 3][j + 3] 
+      ) {
+        victory.push(disco);
       }
     }
   }
@@ -157,9 +138,9 @@ const endOfGame = (winner) => {
   if (winner === false) {
     imgWinner.src = './assets/img/Draw.png';
   } else {
-    if (winner === 'Player 1') {
+    if (winner === player1) {
       imgWinner.src = './assets/img/player1Win.png'
-    } else if (winner === 'Player 2'){
+    } else if (winner === player2){
       imgWinner.src = './assets/img/player2Win.png'
     }
   }
@@ -168,10 +149,10 @@ const endOfGame = (winner) => {
 };
 
 const winCondition = () => {
-  if (victory[0] === "player_red") {
+  if (victory.length > 0) {
     notWin = false;
     setTimeout(function () {
-      endOfGame("Player 1");
+      endOfGame(victory[0]);
     }, 600);
     setTimeout(function () {
       resetGame();
@@ -179,48 +160,34 @@ const winCondition = () => {
     setTimeout(function () {
       tab.classList.add("hidden");
     }, 800);
-    scoreboard("player1");
-  }
-  if (victory[0] === "player_black") {
-    notWin = false;
-    setTimeout(function () {
-      endOfGame("Player 2");
-    }, 600);
-    setTimeout(function () {
-      resetGame();
-    }, 800);
-    setTimeout(function () {
-      tab.classList.add("hidden");
-    }, 800);
-    scoreboard("player2");
+    scoreboard(victory[0]);
   }
 };
 
 const scoreboard = (player) => {
-  let scorePlayer1 = document.querySelector(".scoreP1");
-  let scorePlayer2 = document.querySelector(".scoreP2");
-  let scorePlayerDesktop1 = document.querySelector(".scorePlay1");
-  let scorePlayerDesktop2 = document.querySelector(".scorePlay2");
-  if (player === "player1") {
+  let scorePlayer1 = document.querySelectorAll(".scoreP1");
+  let scorePlayer2 = document.querySelectorAll(".scoreP2");
+  if (player === player1) {
     score[0]++;
-  }
-  if (player === "player2") {
+  } else if (player === player2){
     score[1]++;
   }
-  scorePlayer1.innerText = `${score[0]}`;
-  scorePlayer2.innerText = `${score[1]}`;
-  scorePlayerDesktop1.innerText = `${score[0]}`;
-  scorePlayerDesktop2.innerText = `${score[1]}`;
+  scorePlayer1.forEach(elem => {
+    elem.innerText = `${score[0]}`;
+  })
+  scorePlayer2.forEach(elem => {
+    elem.innerText = `${score[1]}`;
+  })
 };
 scoreboard();
 const gameTied = () => {
   let count = 0;
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < numSections; i++) {
     if (array[i].length === 6) {
       count += 1
     }
   }
-  if (count === 7) {
+  if (count === numSections) {
     setTimeout(function () {
       endOfGame(false);
      }, 600);
